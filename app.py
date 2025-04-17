@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, send_file, send_from_director
 import cv2
 import os
 from ultralytics import YOLO
+#loading YOLOnv8 trained model
+model = YOLO("best.pt")
+
 
 
 image_folder = "./images/"
@@ -50,8 +53,6 @@ app = Flask(__name__)
 def favicon():
     return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-#loading YOLOnv8 trained model
-model = YOLO("best.pt")
 
 @app.route("/", methods = ["GET"])
 def home():
