@@ -51,7 +51,7 @@ def favicon():
     return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 #loading YOLOnv8 trained model
-model = YOLO("c:/Users/PC/Desktop/Tomato Disease Detection/best.pt")
+model = YOLO("best.pt")
 
 @app.route("/", methods = ["GET"])
 def home():
