@@ -4,7 +4,9 @@ import os
 from ultralytics import YOLO
 #loading YOLOnv8 trained model
 model = YOLO("best.pt")
-
+import torch
+quantized_model = torch.quantization.quantize_dynamic(
+model, {torch.nn.Linear, torch.nn.Conv2d}, dtype=torch.qint8)
 
 
 image_folder = "./images/"
